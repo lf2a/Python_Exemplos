@@ -113,6 +113,9 @@ class Pessoa():
     def __ge__(self, x):
         return self.peso >= x.peso
     
+    def __del__(self):
+        print('destructor')
+    
     
     def show(self):
         pass
@@ -167,3 +170,6 @@ if __name__ == '__main__':
     print(p1 != p2)
     print(p1 > p2)
     print(p1 >= p2)
+    
+    del p1
+    del p2
