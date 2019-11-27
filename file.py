@@ -1,16 +1,8 @@
 def read_file():
-    try:
-        text1 = open('lorem.txt', mode='r', encoding='utf-8')
-
-#        print(text1.readline())
-#        print(text1.readlines())
-        print(text1.read())
-    
-    except IOError as ioe:
-        print(ioe)
-    
-    finally:
-        text1.close()
+    with open('lorem.txt', mode='r') as file:
+        print(file.read())
+        # print(file.readline()) # first line
+        # print(file.readlines()) # line
 
 def write_file():
     # a: appending
