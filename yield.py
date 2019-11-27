@@ -1,6 +1,12 @@
-def par():
+def even():
     for i in range(100):
         if i % 2 == 0:
-            yield {'value': i}
+            yield '%d' % i
+        else:
+            yield 'odd'
 
-print(list(par()))
+
+list_ = even()
+
+for index, value in enumerate(list_):
+    print('list_[%s] = %s' % (index, value))
