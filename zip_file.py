@@ -1,5 +1,6 @@
 import zipfile
 import os
+import datetime
 
 
 def create():
@@ -20,5 +21,27 @@ def create_dir():
 
 
 if __name__ == '__main__':
+    zf = zipfile.ZipFile('arquivo.zip', 'r')
+    print(zf.namelist())
+    for filename in zf.namelist():
+        try:
+            data = zf.read(filename)
+            print(dir(zf))
+        except KeyError:
+            print ('ERROR: Did not find %s in zip file' % filename)
+        else:
+            print(filename, ':')
+            print(repr(data))
+        
+    for info in zf.infolist():
+        print(info.filename)
+        print('\tComment:\t', info.comment)
+        print('\tModified:\t', datetime.datetime(*info.date_time))
+        print('\tSystem:\t\t', info.create_system, '(0 = Windows, 3 = Unix)')
+        print('\tZIP version:\t', info.create_version)
+        print('\tCompressed:\t', info.compress_size, 'bytes')
+        print('\tUncompressed:\t', info.file_size, 'bytes')
+    
     # create()
     create_dir()
+    
