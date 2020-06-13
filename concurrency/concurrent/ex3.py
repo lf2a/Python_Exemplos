@@ -1,4 +1,4 @@
-from time import sleep
+import time
 from concurrent.futures import ThreadPoolExecutor
 
 '''Irá executar 'count' 3 (loop) vezes
@@ -15,10 +15,12 @@ from concurrent.futures import ThreadPoolExecutor
         [count - dois] index: 2
 '''
 
+
 def count(t):
     for i in range(3):
         print('[count - %s] index: %d' % (t, i))
-        sleep(5)
+        time.sleep(5)
+
 
 if __name__ == '__main__':
     with ThreadPoolExecutor(max_workers=2) as executor:
