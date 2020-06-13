@@ -1,6 +1,7 @@
-from unittest import TestCase, main
+from unittest import TestCase
 
-from pessoa import Pessoa
+from usuario.pessoa import Pessoa
+
 
 class PessoaTest(TestCase):
     p = Pessoa('luiz', 'filipy', 1.9, 56.9)
