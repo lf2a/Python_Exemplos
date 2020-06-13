@@ -1,10 +1,17 @@
-from configparser import ConfigParser
-from sys import stdout
+import sys
+import configparser
 
-parser = ConfigParser()
+parser = configparser.ConfigParser()
 
 parser.add_section('test')
+
+# set(sessao, chave, valor)
 parser.set('test', 'url', 'http://localhost:80/test')
 parser.set('test', 'debug', 'True')
 
-parser.write(stdout)
+# mostrando a configuração
+parser.write(sys.stdout)
+
+# escrevendo as configurações em um arquivo chamado 'config_writer.ini'
+with open('config_writer.ini', 'w') as ini_file:
+    parser.write(ini_file)

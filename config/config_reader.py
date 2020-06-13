@@ -1,9 +1,9 @@
-from configparser import ConfigParser
+import configparser
 
-parser = ConfigParser()
+parser = configparser.ConfigParser()
 parser.read('config_reader.ini', encoding='utf-8')
 
-print('dev debug: %s' % parser.get('dev', 'debug'))
+print('dev debug: %s\n' % parser.get('dev', 'debug'))
 
 print('prod debug: %s' % parser.get('prod', 'debug'))
 
