@@ -1,6 +1,7 @@
 class NotFoundException(Exception):
-    ''' not found excepetion '''
+    """ not found exception """
     pass
+
 
 def find():
     nomes = ['luiz', 'Carla', 'Filipy', 'Ana']
@@ -14,5 +15,5 @@ def find():
 try:
     find()
 except NotFoundException as nfe:
-#    print(nfe.with_traceback())
+    print(nfe.with_traceback())
     print('Error: %s' % nfe)
