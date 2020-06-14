@@ -1,22 +1,31 @@
-def is_admin(func):
+"""Um decorator pega uma função adiciona algumas funcionalidades e em seguida a retorna
+"""
+
+
+def decorator(func):
     def inner(data):
-        if data['is_admin'] == True:
-            return func(data)
-        else:
-            print('not admin')
-            return
-#            raise Exception('not admin')
+        print(f'decorator: Olá {data}')
+        return func('Luiz Filipy')
+
     return inner
 
-@is_admin
-def home(data):
-    print('data')
-    
 
-data = {
-        'is_admin': False,
-        'nome': 'luiz filipy',
-        'idade': 19
-}
+def decorator2(**kwargs):
+    def inner(func):
+        print(f'decorator2: {kwargs}')
+        return func(12345, **kwargs)
 
-home(data)
+    return inner
+
+
+@decorator
+def test(data):
+    print(f'test: {data}')
+
+
+test('Mundo')
+
+
+@decorator2(id='luiz')
+def test2(num, **kwargs):
+    print(f'test2: {kwargs}\t{num}')
