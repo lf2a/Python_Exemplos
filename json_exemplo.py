@@ -2,7 +2,7 @@ import json
 
 data = [
     {
-        'name': 'Fuiz',
+        'name': 'Luiz',
         'age': 19
     },
     {
