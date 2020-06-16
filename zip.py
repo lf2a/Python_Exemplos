@@ -8,19 +8,15 @@
             (2, 4)
 '''
 
-
-from itertools import zip_longest as zl # lines 35 and 44
-
+import itertools
 
 print('# 0')
 for i in zip([1, 2, 3]):
     print(i)
 
-
 print('\n# 1')
 for i in zip([1, 2, 3], ['A', 'B', 'C']):
     print(i)
-
 
 print('\n# 2')
 for i in zip([1, 2, 3], ['A', 'B', 'C'], ['#', '$', '%']):
@@ -30,17 +26,16 @@ print('\n# 3')
 for i in zip([1, 2, 3], ['A', 'B']):
     print(i)
 
-
 print('\n# 4')
-for i in zl([1, 2, 3], ['A', 'B']):
+for i in itertools.zip_longest([1, 2, 3], ['A', 'B']):
     print(i)
-
 
 print('\n# 5')
 values = zip([1, 2, 3], ['A', 'B'])
 a, b = zip(*values)
 print(a, b)
 
-values_zl = zl([1, 2, 3], ['A', 'B'])
+print('\n# 6')
+values_zl = itertools.zip_longest([1, 2, 3], ['A', 'B'])
 a, b = zip(*values_zl)
 print(a, b)
